@@ -16,6 +16,35 @@ const rockPaperScissors = (hand1, hand2) => {
 
   // Write code here
   // Use the unit test to see what is expected
+  let message = "";
+
+  if(!hand1 || !hand2) return msg;
+
+  hand1 = hand1.trim().toLowerCase();
+  hand2 = hand2.trim().toLowerCase();
+
+
+  if(hand1 == hand2) {
+    message = "It's a tie!";
+    console.log(message);
+    return message;
+  }
+  else{
+
+    let combo = hand1 + hand2;
+    if(combo === "paperrock" || combo === "rockscissors" || combo === "scissorspaper"){
+      message = "Hand one wins!";
+      console.log(message);
+      return message; 
+    } 
+    else{
+      message = "Hand two wins!";
+      console.log(message);
+      return message; 
+    }
+
+  }
+  
 
 }
 
@@ -32,11 +61,11 @@ function getPrompt() {
 }
 
 // Unit Tests
-// to use them run the command: npm test main.js
+// You use them run the command: npm test main.js
 // to close them ctrl + C
 if (typeof describe === 'function') {
 
-  // most are notes for human eyes to read, but essentially passes in inputs then compares if the function you built returns the expected output.
+  // most are notes for human eyes to read, but essentially passes in inputs then compares if the function you built return the expected output.
   describe('#rockPaperScissors()', () => {
     it('should detect a tie', () => {
       assert.equal(rockPaperScissors('rock', 'rock'), "It's a tie!");
